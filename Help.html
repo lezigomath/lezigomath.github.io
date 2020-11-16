@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Regles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="TimesUp.css" type="text/css" media="screen" />
+    <script src="Help.js"></script>
+  </head>
+
+  <body data-spy="scroll" data-target="#list-example">
+    <div class='page' id="app">
+        <div class='mainWrapper'> 
+            <img src="img/bandeau.png" alt='ico_accueil' class="imgBandeau">
+            <br>
+            <h2>
+              coopération en jeu
+            </h2>
+            <div class="titreRegles">
+            Les règles
+            </div>
+            <div>
+                <div id="list-example" class="list-group" class="col-4">
+                  <a class="list-group-tour list-group-tour-action" href="#list-tour-1">1er Tour</a>
+                  <a class="list-group-tour list-group-tour-action" href="#list-tour-2">2ème Tour</a>
+                  <a class="list-group-tour list-group-tour-action" href="#list-tour-3">3ème Tour</a>
+                </div>
+                <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example" class="col-8">
+                  <h4 id="list-tour-1">1er Tour</h4>
+                    <div class="textRegles">
+                      Vous êtes le participant qui a le jeu en main ? Vous devez faire deviner un maximum de mots en un temps limité : </br>
+                      <li>
+                        Vous pouvez utiliser autant de mot que vous le souhaitez, sauf bien sûr celui à faire deviner
+                      </li>
+                      <li>
+                        Vous n'avez pas d'idées ? Passez au mot suivant, en passant le mot actuel. 
+                      </li>
+                      <li>
+                        Lorsque le temps est écoulé, passez l'application à votre voisin de gauche. C'est alors lui qui a le jeu en main: il enchaine avec brio (comme vous). </br>
+                        Allez, c'est parti !
+                      </li>
+                    </div>
+                  <h4 id="list-tour-2">2ème Tour</h4>
+                    <div class="textRegles">
+                      C'est désormais le deuxième tour. </br>
+                      Vous êtes le participant qui a le jeu en main ? Enchainons sur le même principe, toujours dans un temps limité, avec une consigne que nous ajoutons (vous êtes devenu tellement fort !) :</br>
+                      Vous ne pouvez utiliser qu'un seul mot pour décrire le mot !
+                      Les autres consignes sont inchangées.
+                    </div>
+                  <h4 id="list-tour-3">3ème Tour</h4>
+                  <div class="textRegles">
+                    Voici le troisième tour ! </br>
+                    Allons-y sur le même principe, toujours dans un temps limité. Soyons joueur, ajoutons une nouvelle difficulté : vous devez mimer le mot pour le faire deviner.
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class='bottomBar'> 
+            <img src='img/main.png' alt='main' class="imgMain" v-on:click="navToMain">
+
+            <img src='img/link.png' alt="liens" class="imgLink" v-on:click="navToLink">
+
+            <img src='img/help.png' alt="help" class="imgHelp" v-on:click="navToHelp">
+
+    </div>
+    </div>
+  </body>
+</html>
+
