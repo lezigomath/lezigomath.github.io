@@ -87,6 +87,18 @@ h2 {
     max-width: 62px;
 }
 
+.imgCross{
+    width: 16px;
+    height: 16px;
+    float: right;
+}
+
+.imgCheck{
+    width: 16px;
+    height: 16px;
+    float: right;
+}
+
 .accesCode {
     margin: 0.5%;
     width: 40%;
@@ -410,9 +422,10 @@ body {
         text-align: center;
         border-radius: 1em;
         color: black;
+        padding: 10px;
     }
 
     .lastTurnDetail{
         text-align: left;
-        margin-bottom: 3px;
+        margin-bottom: 5px;
     }

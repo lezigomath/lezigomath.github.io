@@ -55,7 +55,7 @@ function init (){
                     this.currentCard = takenElements[0];
                 }
                 else {
-                    alert("Bravo, vous avez trouvé " + this.getFoundCards().length + " sur 53 cartes.");
+                    alert("Bravo, vous avez trouvé " + this.getFoundCards().length + " sur" + this.playedCards.length + "cartes.");
                 }
             },
 
@@ -90,6 +90,11 @@ function init (){
             let cardsObj = JSON.parse(cardStr);
             return cardsObj;
           },
+
+          comptCardPlayed: function(){
+            let nbCardPlayed = this.playedCards.length
+            return nbCardPlayed;
+          },
         },
 
         async created (){
@@ -97,6 +102,7 @@ function init (){
             this.getRandomCardFromCurrentCards();
             this.currentCardIsLoaded = true;
         },
+
     })
 }
 

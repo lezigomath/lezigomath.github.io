@@ -63,7 +63,13 @@
               <div class="modal-body">
                 <h4>Bravo, vous avez trouvé {{getFoundCards().length}} sur {{comptCardPlayed()}} cartes. Voulez vous passer au tour suivant ?</h4>
                 <div class="lastTurnDetail" v-for="card in playedCards" :key="card.id">
-                  {{card.word}}  {{card.found}}
+                  {{card.word}} 
+                  <span v-if="card.found"> 
+                    <img src="./img/ico_check.jpg" class="imgCheck">
+                   </span>
+                  <span v-else> 
+                    <img src="./img/ico_cross.jpg" class="imgCross">
+                  </span> 
                 </div>
               </div>
               <div class="modal-footer">
