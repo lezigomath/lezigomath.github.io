@@ -200,6 +200,7 @@ function runTimer() {
       document.getElementById('minutes').innerHTML = "00";
       document.getElementById('timer').classList.add('times-up');
       stopTimer();
+      $("#smallModal").modal();
       return;
     }
 
@@ -218,7 +219,6 @@ function runTimer() {
     document.getElementById('seconds').innerHTML = seconds;
   }
 }
-
 
 function hideRappel(){
   var x = document.getElementById("rappelR");

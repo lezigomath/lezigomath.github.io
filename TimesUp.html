@@ -23,9 +23,9 @@
                 coopération en jeu
             </h2>
             
-            <input type="text" placeholder ='rentrez code accès' v-model='accesCode' class='accesCode' class="col-auto">
+            <input type="text" placeholder ='rentrez code accès' v-model='accesCode' class='accesCode col-6'>
             <div>
-                <button :disabled="! accesCode" type="button" class="btn btn-success" v-on:click='ValidateCode' class="col-auto">Valider</button>
+                <button :disabled="! accesCode" type="button" class="btn btn-success col-4" v-on:click='ValidateCode'>Valider</button>
             </div>
         <div class='bottomBar' class="col-auto"> 
             <img src='img/main.png' alt='règle' class="imgMain" v-on:click="navToMain" class="col-auto">
