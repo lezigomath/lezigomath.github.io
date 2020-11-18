@@ -27,31 +27,31 @@
         Tour 3
       </div>
       </div>
-    <div class="pomodoroTimer">
-      <div class="timer-display">
-        <button id="step-down" class="stepperMoins animated" OnClick="decrementTimer()">
-          <i class="fa fa-2x fa-minus-circle"></i>
-        </button>
-        <button id="step-up" class="stepperPlus animated" type="button" OnClick="incrementTimer()">
-          <i class="fa fa-2x fa-plus-circle"></i>
-        </button>
-        <div id="timer" class="timer-control" OnClick="startTimer()">
-          <span id="minutes">2</span>
-          <span class="seperator">:</span>
-          <span id="seconds">00</span>
+      <div class="pomodoroTimer col-9">
+        <div class="timer-display row">
+          <button id="step-down" class="stepperMoins animated col-2" OnClick="decrementTimer()">
+            <i class="fa fa-2x fa-minus-circle"></i>
+          </button>
+          <div id="timer" class="timer-control col-8" OnClick="startTimer()">
+            <span id="minutes">2</span>
+            <span class="seperator">:</span>
+            <span id="seconds">00</span>
+          </div>
+          <button id="step-up" class="stepperPlus animated col-2" type="button" OnClick="incrementTimer()">
+            <i class="fa fa-2x fa-plus-circle"></i>
+          </button>
         </div>
-      </div>
-      <div id="interface" class="animated row">
-        <div class="col-4">
-          <button class="resetButton" type="button" OnClick="resetTimer()" >reset</button>
+        <div id="interface" class="animated row">
+          <div class="col-4">
+            <button class="resetButton" type="button" OnClick="resetTimer()" >reset</button>
+          </div>
+        <div class="col-4" OnClick="startTimer()">
+          <img src="img/timer.png" alt='ico_timer' class="imgTimer">
         </div>
-      <div class="col-4" OnClick="startTimer()">
-        <img src="img/timer.png" alt='ico_timer' class="imgTimer">
-      </div>
-        <div class="col-4">
-          <button class="stopButton" type="button" Onclick="stopTurn()" a href="#" data-toggle="modal" data-target="#smallModal">Stop Tour</button>
+          <div class="col-4">
+            <button class="stopButton" type="button" Onclick="stopTurn()" a href="#" data-toggle="modal" data-target="#smallModal">Stop Tour</button>
+          </div>
         </div>
-      </div>
  
         <!--la modale-->
         <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
