@@ -41,10 +41,17 @@
           <span id="seconds">00</span>
         </div>
       </div>
-      <div id="interface" class="animated">
-        <button class="resetButton" type="button" OnClick="resetTimer()" class="col-4">reset</button>
-      
-        <button class="stopButton" type="button" Onclick="stopTurn()" a href="#" data-toggle="modal" data-target="#smallModal">Stop Tour</button>
+      <div id="interface" class="animated row">
+        <div class="col-4">
+          <button class="resetButton" type="button" OnClick="resetTimer()" >reset</button>
+        </div>
+      <div class="col-4" OnClick="startTimer()">
+        <img src="img/timer.png" alt='ico_timer' class="imgTimer">
+      </div>
+        <div class="col-4">
+          <button class="stopButton" type="button" Onclick="stopTurn()" a href="#" data-toggle="modal" data-target="#smallModal">Stop Tour</button>
+        </div>
+      </div>
  
         <!--la modale-->
         <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -87,21 +94,30 @@
 
     <!--game div, active apres onclick:showgame()-->
     <div v-if ="currentCardIsLoaded" class="gameDiv" id="gameD">
-      <div class="currentWord">
-        {{currentCard.word}}
+      <div class="currentWord row">
+        <div class="detailWord col-2">
+          <button class="detailBtn" type="button" OnClick="showDetail()">
+            <i class="far fa-plus-circle"></i>
+          </button>
+        </div>
+           <div class="col-9">
+            {{currentCard.word}}
+           </div>
       </div>
-
       <span class="nbWordsLeft">
         {{currentCards.length}}
       </span>
+      <div class="wordDesc" id="wordDetail">
+        {{currentCard.descrption}}
+      </div>
 
-      <button id="WordFound" type="button" v-on:click="foundCard()">OK</button>
+      <button id="WordFound" type="button" v-on:click="foundCard()">
+      </button>
 
-      <button id="WordPass" type="button" v-on:click='nextCard()'>NEXT</button>
+      <button id="WordPass" type="button" v-on:click='nextCard()'>
+      </button>
 
-    </div>
   </div>
-
     <div class='bottomBar'>
       <img src='img/main.png' alt='règle' class="imgMain" v-on:click="navToMain" class="col-4">
 
