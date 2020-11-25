@@ -5,37 +5,37 @@
 
 h2 {
     color : rgb(50, 70, 151);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h4{
+    margin: 10px;
 }
 
 .bottomBar {
     background-color: rgb(255, 165, 105);
-    height: 120px;
-    display: flex;
+    height: 100px;
     text-align: center;
     width: 95%;
     border-radius: 2em;
     margin-left: 2%;
     object-fit: scale-down;
-    margin-top: 30px;
-    border: 2px solid #777 !important;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin-top: 35px;
     position: relative;
-    bottom: 5px;
 }
 
 .bottomBar img {
-    max-width: 100%;
-    float: none;
-    width: 25%;
-    margin-left: 6%;
+    max-width: 58px;
+    margin-top: 20px;
 }
 
 .imgBandeau{
-    max-width: 65%;
+    max-width: 75%;
     padding-top: 5%;
     padding-left: 5%;
     padding-right: 5%;
     margin-bottom: 10px;
+    min-height: 80px;
 }
 
 .imgHelp {
@@ -45,12 +45,14 @@ h2 {
 }
 
 .imgMain {
-    margin-left: 10px;
-    margin-right: 10px;
     object-fit: scale-down;
-    width: auto;
-    margin-bottom: 10px;
+    width: 60%;
     max-height: 270px;
+    margin: 25px;
+}
+
+.imgHome{
+    max-width: 64px;
 }
 
 .imgLink {
@@ -100,17 +102,23 @@ h2 {
 }
 
 .accesCode {
-    margin: 0.5%;
+    margin: 25px;
     width: 40%;
     text-align: center;
     height: 35px;
     font-size: 80%;
+    border: 2px solid black;
+    border-radius: 0.5em;
 }
 
 .btn.btn-success {
     margin: 2%;
-    border-radius: 10% !important;
-    border: 2px solid #444 !important;
+    border-radius: 0.5em !important;
+    border: 2px solid black !important;
+    background-color: rgb(45, 212, 72) !important;
+    color: black !important;
+    font-size: large;
+    max-height: 42px;
 }
 
 .page{
@@ -181,7 +189,7 @@ h2 {
     font-size: 180%;
     color: rgb(226, 113, 33);
     margin: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .textRegles{
@@ -189,7 +197,7 @@ h2 {
     font-family: Verdana;
     margin-left: 5%;
     margin-right: 5%;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .titreCredit{
@@ -225,10 +233,13 @@ body {
     margin: 10px;
     display: block;
     font-family: Amarillo;
+    margin-bottom: 10px;
+
 } 
 .list-group-tour.list-group-tour-action{
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 10px;
     text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
 }
 
@@ -385,6 +396,7 @@ body {
         border-radius: 15% !important;
         border: 2px solid #444;
         width: auto;
+        background-color: rgb(45, 212, 72) !important;
     }
 
     .rappelRegles{
@@ -400,7 +412,7 @@ body {
         border-radius: 15% !important;
         border: 2px solid #444;
         width: auto;
-        background-color: #00cc66;
+        background-color: rgb(45, 212, 72);
     }
 
     .detailBtn{

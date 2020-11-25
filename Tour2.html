@@ -120,13 +120,19 @@
 
   </div>
 
-    <div class='bottomBar'>
-      <img src='img/ico_home.png' alt='règle' class="imgMain" v-on:click="navToMain" class="col-4">
+  <div class='bottomBar'>
+    <div class="row">
+    <div class="col-4">
+      <img src='img/ico_home.png' alt='règle' class="imgHome" v-on:click="navToMain">
+    </div>
 
-      <img src='img/link.png' alt="liens" class="imgLink" v-on:click="navToLink" class="col-4">
+    <div class="col-4">
+      <img src='img/main.png' alt="liens" class="imgLink" v-on:click="navToLink">
+    </div>
 
-      <img src='img/help.png' alt="help" class="imgHelp" v-on:click="navToHelp"class="col-4">
-      
+    <div class="col-4">
+      <img src='img/help.png' alt="help" class="imgHelp" v-on:click="navToHelp">
+    </div>
     </div>
   </div>
 </div>

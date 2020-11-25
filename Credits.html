@@ -20,7 +20,7 @@
       <img src="img/bandeau.png" alt='ico_accueil' class="imgBandeau">
       <br>
       <h2>
-        coopération en jeu
+        Coopération en jeu
       </h2>
       <div class="titreCredit">
         Crédits
@@ -50,12 +50,20 @@
         Contact: 04 78 59 94 45
       </div>
     </div>
-    <div class='bottomBar'>
-      <img src='img/ico_home.png' alt='règle' class="imgMain" v-on:click="navToMain">
+    <div class='bottomBar row'>
 
-      <img src='img/link.png' alt="liens" class="imgLink" v-on:click="navToLink">
+      <div class="col-4">
+        <img src='img/ico_home.png' alt='règle' class="imgHome" v-on:click="navToMain">
+      </div>
 
-      <img src='img/help.png' alt="help" class="imgHelp" v-on:click="navToHelp">
+      <div class="col-4">
+        <img src='img/main.png' alt="liens" class="imgLink" v-on:click="navToLink">
+      </div>
+
+      <div class="col-4">
+        <img src='img/help.png' alt="help" class="imgHelp" v-on:click="navToHelp">
+      </div>
+
     </div>
   </div>
 </body>
