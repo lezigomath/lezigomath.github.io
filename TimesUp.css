@@ -93,12 +93,14 @@ h4{
     width: 16px;
     height: 16px;
     float: right;
+    margin-top: 17px;
 }
 
 .imgCheck{
     width: 16px;
     height: 16px;
     float: right;
+    margin-top: 17px;
 }
 
 .accesCode {
@@ -388,8 +390,9 @@ body {
 
     .btn.btn-lg.btn-danger{
         border-radius: 15% !important;
-        border: 2px solid #444;
+        border: 2px solid black;
         width: auto;
+        max-height: 42px;
     }
 
     .btn.btn-lg.btn-success{
@@ -439,5 +442,9 @@ body {
 
     .lastTurnDetail{
         text-align: left;
-        margin-bottom: 5px;
+        font-size: 1.2em;
+    }
+
+    .cardWord{
+        margin-top: 15px;
     }

@@ -244,3 +244,11 @@ function showDetail(){
     else {
       document.getElementById('wordDetail').style.display = "none";}
     }
+
+    function showCurrentDetail(){
+      if(document.getElementById('currentWordDetail').style.display === "none"){
+        document.getElementById('currentWordDetail').style.display = "block";}
+        else {
+          document.getElementById('currentWordDetail').style.display = "none";}
+        }
+    
