@@ -3,19 +3,25 @@ const appConfig = {
     id: appId};
 
     async function initCards() {
-        let user;
-        try {
-            const app = new Realm.App(appConfig);
-            user = await app.logIn(Realm.Credentials.anonymous());
+      let user;
+      try {
+          const app = new Realm.App(appConfig);
+          user = await app.logIn(Realm.Credentials.anonymous());
 
-            const mongo = app.services.mongodb("mongodb-atlas");
-            const mongoCollection = mongo.db("TimesUp").collection("cards");
-            let cards = await mongoCollection.find();
-            return cards;
-        }
-        finally{
-        }
-    }
+          const mongo = app.services.mongodb("mongodb-atlas");
+          const mongoCollection = mongo.db("TimesUp").collection("cards");
+          let cards = await mongoCollection.find();
+
+
+          for(var i = 0; i  < cards.length ; i++)
+            cards[i].descrptionVisible = false;
+
+          return cards;
+      }
+      finally{
+      }
+  }
+
 
 function init (){
     app= new Vue ({
@@ -95,7 +101,7 @@ window.onload = init;
 var timerActive = false;
 var pomoTimer = 0;
 var seconds = 00;
-var minutes = 2;
+var minutes = 1;
 
 function decrementTimer() {
   if (timerActive) {
@@ -130,7 +136,7 @@ function incrementTimer() {
 }
 
 function resetTimer() {
-  minutes = 02;
+  minutes = 01;
   seconds = "00";
   timerActive = false;
   document.getElementById('timer').classList.remove('times-up');
@@ -209,3 +215,10 @@ function showDetail(){
     else {
       document.getElementById('wordDetail').style.display = "none";}
     }
+
+    function showCurrentDetail(){
+      if(document.getElementById('currentWordDetail').style.display === "none"){
+        document.getElementById('currentWordDetail').style.display = "block";}
+        else {
+          document.getElementById('currentWordDetail').style.display = "none";}
+        }

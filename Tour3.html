@@ -59,25 +59,36 @@
             <div class="modal-content">
               <div class="modal-body">
                 <h4>Bravo, vous avez trouvé {{getFoundCards().length}} sur {{comptCardPlayed()}} cartes. Voulez vous passer au tour suivant ?</h4>
-                <div class="lastTurnDetail" v-for="card in playedCards" :key="card.id">
-                  {{card.word}} 
-                  <span v-if="card.found"> 
-                    <img src="./img/ico_check.jpg" class="imgCheck">
-                   </span>
-                  <span v-else> 
-                    <img src="./img/ico_cross.jpg" class="imgCross">
-                  </span> 
+                
+                <div class="lastTurnDetail" v-for="(card, index) in playedCards" :key="card.id">
+                  <div class="row">
+                  <div class="col-2">
+                    <button class="detailBtn" type="button" v-on:click="showCurrentDetail(index)">
+                      <i class="far fa-plus-circle"></i>
+                    </button>
+                  </div>
+                  <div class="cardWord col-9">
+                    {{card.word}}
+                  </div>
+                    <span v-if="card.found"> 
+                      <img src="./img/ico_check.jpg" class="imgCheck">
+                    </span>
+                    <span v-else> 
+                      <img src="./img/ico_cross.jpg" class="imgCross">
+                    </span> 
+                    <div v-show="card.descrptionVisible">
+                      {{card.descrption}}
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-lg btn-success">Tour suivant</button>
+                <button type="button" class="btn btn-lg btn-success" v-on:click="navToTour2">Tour suivant</button>
               </div>
             </div>
           </div>
         </div>
-
-      </div>
     </div>
     
     <div class="rappelRegles" id="rappelR">

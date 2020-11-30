@@ -11,6 +11,11 @@ const appConfig = {
             const mongo = app.services.mongodb("mongodb-atlas");
             const mongoCollection = mongo.db("TimesUp").collection("cards");
             let cards = await mongoCollection.find();
+
+
+            for(var i = 0; i  < cards.length ; i++)
+              cards[i].descrptionVisible = false;
+
             return cards;
         }
         finally{
@@ -103,6 +108,12 @@ function init (){
               let nbCardPlayed = 53 - this.currentCards.length;
               return nbCardPlayed;
             },
+            showCurrentDetail : function(cardid){
+              for(var i = 0; i  < this.playedCards.length ; i++)
+                this.playedCards[i].descrptionVisible = false;
+
+              this.playedCards[cardid].descrptionVisible = true;
+            }
 
         },
 
@@ -119,6 +130,8 @@ function init (){
                 this.currentCards = this.cards2;
             }
             else alert("code error");
+
+              
             this.getRandomCardFromCurrentCards();
             this.currentCardIsLoaded = true;
         },
@@ -130,7 +143,7 @@ window.onload = init;
 var timerActive = false;
 var pomoTimer = 0;
 var seconds = 00;
-var minutes = 2;
+var minutes = 1;
 
 function decrementTimer() {
   if (timerActive) {
@@ -165,7 +178,7 @@ function incrementTimer() {
 }
 
 function resetTimer() {
-  minutes = 02;
+  minutes = 01;
   seconds = "00";
   timerActive = false;
   document.getElementById('timer').classList.remove('times-up');
@@ -251,4 +264,5 @@ function showDetail(){
         else {
           document.getElementById('currentWordDetail').style.display = "none";}
         }
-    
+
+
