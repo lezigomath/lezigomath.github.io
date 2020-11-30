@@ -447,4 +447,10 @@ body {
 
     .cardWord{
         margin-top: 15px;
+        font-weight: 500;
+    }
+
+    .cardDescModal {
+        font-size: 0.8em;
+        background-color: blanchedalmond;
     }

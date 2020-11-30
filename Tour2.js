@@ -61,7 +61,7 @@ function init (){
                     this.currentCard = takenElements[0];
                 }
                 else {
-                    alert("Bravo, vous avez trouvé " + this.getFoundCards().length + " sur" + this.playedCards.length + "cartes.");
+                  stopTurn();
                 }
             },
 
@@ -101,6 +101,12 @@ function init (){
             let nbCardPlayed = this.playedCards.length
             return nbCardPlayed;
           },
+          showCurrentDetail : function(cardid){
+            for(var i = 0; i  < this.playedCards.length ; i++)
+              this.playedCards[i].descrptionVisible = false;
+
+            this.playedCards[cardid].descrptionVisible = true;
+          }
         },
 
         async created (){
@@ -188,6 +194,7 @@ function runTimer() {
       document.getElementById('minutes').innerHTML = "00";
       document.getElementById('timer').classList.add('times-up');
       stopTimer();
+      $("#smallModal").modal();
       return;
     }
 
@@ -209,6 +216,7 @@ function runTimer() {
 
 function stopTurn(){
     resetTimer();
+    $("#smallModal").modal();
 }
 
 

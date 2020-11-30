@@ -58,7 +58,7 @@ function init (){
                     this.currentCard = takenElements[0];
                 }
                 else {
-                    alert("Bravo, vous avez trouvé " + this.getFoundCards().length + " sur " + this.playedCard().length + "cartes.");
+                  stopTurn();
                 }
             },
 
@@ -108,13 +108,16 @@ function init (){
               let nbCardPlayed = 53 - this.currentCards.length;
               return nbCardPlayed;
             },
+
             showCurrentDetail : function(cardid){
               for(var i = 0; i  < this.playedCards.length ; i++)
                 this.playedCards[i].descrptionVisible = false;
-
-              this.playedCards[cardid].descrptionVisible = true;
+              
+             if(this.playedCards[cardid].descrptionVisible === true){
+              this.playedCards[cardid].descrptionVisible = false
+             }
+             else{this.playedCards[cardid].descrptionVisible = true}
             }
-
         },
 
         async created (){
@@ -130,7 +133,6 @@ function init (){
                 this.currentCards = this.cards2;
             }
             else alert("code error");
-
               
             this.getRandomCardFromCurrentCards();
             this.currentCardIsLoaded = true;
@@ -249,6 +251,7 @@ function showGame() {
 
 function stopTurn(){
     resetTimer();
+    $("#smallModal").modal();
 }
 
 function showDetail(){
@@ -258,11 +261,10 @@ function showDetail(){
       document.getElementById('wordDetail').style.display = "none";}
     }
 
-    function showCurrentDetail(){
+    /*function showCurrentDetail(){
       if(document.getElementById('currentWordDetail').style.display === "none"){
         document.getElementById('currentWordDetail').style.display = "block";}
         else {
           document.getElementById('currentWordDetail').style.display = "none";}
         }
-
-
+*/
