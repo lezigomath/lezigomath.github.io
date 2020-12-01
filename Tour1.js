@@ -113,7 +113,7 @@ function init (){
               for(var i = 0; i  < this.playedCards.length ; i++)
                 this.playedCards[i].descrptionVisible = false;
               
-             if(this.playedCards[cardid].descrptionVisible === true){
+             if(this.playedCards[cardid].descrptionVisible == true){
               this.playedCards[cardid].descrptionVisible = false
              }
              else{this.playedCards[cardid].descrptionVisible = true}
@@ -260,11 +260,3 @@ function showDetail(){
     else {
       document.getElementById('wordDetail').style.display = "none";}
     }
-
-    /*function showCurrentDetail(){
-      if(document.getElementById('currentWordDetail').style.display === "none"){
-        document.getElementById('currentWordDetail').style.display = "block";}
-        else {
-          document.getElementById('currentWordDetail').style.display = "none";}
-        }
-*/

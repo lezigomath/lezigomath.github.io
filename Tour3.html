@@ -61,7 +61,8 @@
           <div class="modal-dialog modal-sm">
             <div class="modal-content">
               <div class="modal-body">
-                <h4>Bravo, vous avez trouvé {{getFoundCards().length}} sur {{comptCardPlayed()}} cartes. Voulez vous passer au tour suivant ?</h4>
+                <h4>Bravo, vous avez trouvé {{getFoundCards().length}} sur {{comptCardPlayed()}} cartes. Félicitation !</h4>
+                <img src="./img/ico_feu_artifice.png" class="imgArtifice">
                 
                 <div class="lastTurnDetail" v-for="(card, index) in playedCards" :key="card.id">
                   <div class="row">
@@ -86,8 +87,8 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-lg btn-success" v-on:click="navToTour2">Tour suivant</button>
+                <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Fermer</button>
+                <button type="button" class="btn btn-lg btn-success" v-on:click="navToMain">Accueil</button>
               </div>
             </div>
           </div>
@@ -96,10 +97,7 @@
     
     <div class="rappelRegles" id="rappelR">
       <span>
-        C'est désormais le deuxième tour.
-        Toujours dans un temps limité nous ajoutons une consigne supplémentaire :
-        Vous ne pouvez utiliser qu'un seul mot pour décrire le mot !
-        Les autres consignes sont inchangées.
+        Voici le 3éme tour ! Allons y sur le même principe, toujours dans un temps limité. Soyons joueurs, ajoutons une nouvelle difficulté : vous devez mimer le mot pour le faire deviner.
       </span>
     </br>
       <button type="button" class="gameStartBtn" OnClick="startTimer();hideRappel();showGame()" >Commencer</button>
