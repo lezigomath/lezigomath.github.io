@@ -24,46 +24,18 @@
 <body>
   <div class='page' id="app">
     <div class='mainWrapper' class="row">
-      <div class="row">
-      <img src="img/Tour3.png" alt='ico_accueil' class="imgTour3 col-6">
-      <div class="currentTour col-6">
+      
+      <div class="currentTour">
         Tour 3
       </div>
-      </div>
-      <div class="pomodoroTimer col-9">
-        <div class="timer-display row">
-          <button id="step-down" class="stepperMoins animated col-2" OnClick="decrementTimer()">
-            <i class="fa fa-2x fa-minus-circle"></i>
-          </button>
-          <div id="timer" class="timer-control col-8" OnClick="startTimer()">
-            <span id="minutes">1</span>
-            <span class="seperator">:</span>
-            <span id="seconds">00</span>
-          </div>
-          <button id="step-up" class="stepperPlus animated col-2" type="button" OnClick="incrementTimer()">
-            <i class="fa fa-2x fa-plus-circle"></i>
-          </button>
-        </div>
-        <div id="interface" class="animated row">
-          <div class="col-4">
-            <button class="resetButton" type="button" OnClick="resetTimer()" >reset</button>
-          </div>
-        <div class="col-4" OnClick="startTimer()">
-          <img src="img/timer.png" alt='ico_timer' class="imgTimer">
-        </div>
-          <div class="col-4">
-            <button class="stopButton" type="button" Onclick="stopTurn()" a href="#" data-toggle="modal" data-target="#smallModal">Stop Tour</button>
-          </div>
-        </div>
  
         <!--la modale-->
         <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
           <div class="modal-dialog modal-sm">
             <div class="modal-content">
               <div class="modal-body">
-                <h4>Bravo, vous avez trouvé {{getFoundCards().length}} sur {{comptCardPlayed()}} cartes. Félicitation !</h4>
                 <img src="./img/ico_feu_artifice.png" class="imgArtifice">
-                
+                <h4>Bravo, vous avez trouvé {{getFoundCards().length}} sur {{comptCardPlayed()}} cartes. Félicitation !</h4>
                 <div class="lastTurnDetail" v-for="(card, index) in playedCards" :key="card.id">
                   <div class="row">
                   <div class="col-2">
@@ -93,16 +65,18 @@
             </div>
           </div>
         </div>
-    </div>
+  
     
     <div class="rappelRegles" id="rappelR">
+      <div class="col-12">
+      <img src="img/tour3.png" alt='ico_accueil' class="imgTour3">
+      </div>
       <span>
         Voici le 3éme tour ! Allons y sur le même principe, toujours dans un temps limité. Soyons joueurs, ajoutons une nouvelle difficulté : vous devez mimer le mot pour le faire deviner.
       </span>
     </br>
       <button type="button" class="gameStartBtn" OnClick="startTimer();hideRappel();showGame()" >Commencer</button>
     </div>
-
 
     <!--game div, active apres onclick:showgame()-->
     <div v-if ="currentCardIsLoaded" class="gameDiv" id="gameD">
@@ -112,7 +86,7 @@
             <i class="far fa-plus-circle"></i>
           </button>
         </div>
-           <div class="col-9">
+           <div class="col-10 wordGame">
             {{currentCard.word}}
            </div>
       </div>
@@ -128,8 +102,35 @@
 
       <button id="WordPass" type="button" v-on:click='nextCard()'>
       </button>
-
   </div>
+  
+  <div class="pomodoroTimer col-9">
+    <div class="timer-display row">
+      <button id="step-down" class="stepperMoins animated col-2" OnClick="decrementTimer()">
+        <i class="fa fa-2x fa-minus-circle"></i>
+      </button>
+      <div id="timer" class="timer-control col-8" OnClick="startTimer()">
+        <span id="minutes">1</span>
+        <span class="seperator">:</span>
+        <span id="seconds">00</span>
+      </div>
+      <button id="step-up" class="stepperPlus animated col-2" type="button" OnClick="incrementTimer()">
+        <i class="fa fa-2x fa-plus-circle"></i>
+      </button>
+    </div>
+    <div id="interface" class="animated row">
+      <div class="col-4">
+        <button class="resetButton" type="button" OnClick="resetTimer()" >reset</button>
+      </div>
+    <div class="col-4" OnClick="startTimer()">
+      <img src="img/timer.png" alt='ico_timer' class="imgTimer">
+    </div>
+      <div class="col-4">
+        <button class="stopButton" type="button" Onclick="stopTurn()" a href="#" data-toggle="modal" data-target="#smallModal">Stop Tour</button>
+      </div>
+    </div>
+  </div>
+
   <div class='bottomBar'>
     <div class="row">
     <div class="col-4">

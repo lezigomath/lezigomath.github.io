@@ -20,42 +20,11 @@
 
 <body>
   <div class='page' id="app">
-    
     <div class="mainWrapper">
-      <div class="row">
-        <div class="col-6">
-          <img src="img/Tour1.png" alt='ico_accueil' class="imgTour1">
-        </div>
-        <div class="currentTour col-6">
+        <div class="currentTour">
           Tour 1
         </div>
-      </div>
-    <div class="pomodoroTimer col-9">
-      <div class="timer-display row">
-        <button id="step-down" class="stepperMoins animated col-2" OnClick="decrementTimer()">
-          <i class="fa fa-2x fa-minus-circle"></i>
-        </button>
-        <div id="timer" class="timer-control col-8" OnClick="startTimer()">
-          <span id="minutes">1</span>
-          <span class="seperator">:</span>
-          <span id="seconds">00</span>
-        </div>
-        <button id="step-up" class="stepperPlus animated col-2" type="button" OnClick="incrementTimer()">
-          <i class="fa fa-2x fa-plus-circle"></i>
-        </button>
-      </div>
-      <div id="interface" class="animated row">
-        <div class="col-4">
-          <button class="resetButton" type="button" OnClick="resetTimer()" >reset</button>
-        </div>
-      <div class="col-4" OnClick="startTimer()">
-        <img src="img/timer.png" alt='ico_timer' class="imgTimer">
-      </div>
-        <div class="col-4">
-          <button class="stopButton" type="button" Onclick="stopTurn()" a href="#" data-toggle="modal" data-target="#smallModal">Stop Tour</button>
-        </div>
-      </div>
-
+    
         <!--la modale-->
         <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
           <div class="modal-dialog modal-sm">
@@ -95,6 +64,9 @@
     </div>
 
     <div class="rappelRegles" id="rappelR">
+      <div>
+        <img src="img/tour1.png" alt='ico_accueil' class="imgTour1">
+      </div>
       <span>
         Vous êtes le participant qui a le jeu en main ? Vous devez faire deviner un maximum de mots en un temps limité :
         Vous pouvez utiliser autant de mot que vous le souhaitez, sauf bien sûr celui à faire deviner.
@@ -113,7 +85,7 @@
             <i class="far fa-plus-circle"></i>
           </button>
         </div>
-           <div class="col-9">
+           <div class="col-10 wordGame">
             {{currentCard.word}}
            </div>
       </div>
@@ -123,14 +95,42 @@
       <div class="wordDesc" id="wordDetail">
         {{currentCard.descrption}}
       </div>
+      <div class="buttonsGame">
 
-      <button id="WordFound" type="button" v-on:click="onFoundBtnClick()">
-      </button>
+        <button id="WordFound" type="button" v-on:click="onFoundBtnClick()">
+        </button>
 
-      <button id="WordPass" type="button" v-on:click='nextCard()'>
-      </button>
-
+        <button id="WordPass" type="button" v-on:click='nextCard()'>
+        </button>
+      </div>
     </div>
+    <div class="pomodoroTimer col-9">
+      <div class="timer-display row">
+        <button id="step-down" class="stepperMoins animated col-2" OnClick="decrementTimer()">
+          <i class="fa fa-2x fa-minus-circle"></i>
+        </button>
+        <div id="timer" class="timer-control col-8" OnClick="startTimer()">
+          <span id="minutes">1</span>
+          <span class="seperator">:</span>
+          <span id="seconds">00</span>
+        </div>
+        <button id="step-up" class="stepperPlus animated col-2" type="button" OnClick="incrementTimer()">
+          <i class="fa fa-2x fa-plus-circle"></i>
+        </button>
+      </div>
+      <div id="interface" class="animated row">
+        <div class="col-4">
+          <button class="resetButton" type="button" OnClick="resetTimer()" >reset</button>
+        </div>
+      <div class="col-4" OnClick="startTimer()">
+        <img src="img/timer.png" alt='ico_timer' class="imgTimer">
+      </div>
+        <div class="col-4">
+          <button class="stopButton" type="button" Onclick="stopTurn()" a href="#" data-toggle="modal" data-target="#smallModal">Stop Tour</button>
+        </div>
+      </div>
+
+
   </div>
 
   <div class='bottomBar'>
