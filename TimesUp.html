@@ -28,14 +28,15 @@
                 <button :disabled="! accesCode" type="button" class="btn btn-success col-5" v-on:click='ValidateCode'>Valider</button>
             </div>
 
+            <div class="clear"></div>
             <div class='bottomBar'>
               <div class="row">
               <div class="col-4">
-                <img src='img/ico_home.png' alt='règle' class="imgHome" v-on:click="navToMain">
-              </div>
-          
-              <div class="col-4">
                 <img src='img/main.png' alt="liens" class="imgLink" v-on:click="navToLink">
+              </div>
+
+              <div class="col-4">
+                <img src='img/ico_home.png' alt='règle' class="imgHome" v-on:click="navToMain">
               </div>
           
               <div class="col-4">

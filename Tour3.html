@@ -24,9 +24,12 @@
 <body>
   <div class='page' id="app">
     <div class='mainWrapper' class="row">
-      
+      <h2>
+        Coopération en jeu
+      </h2>
+      <h4>Groupe 1</h4>
       <div class="currentTour">
-        Tour 3
+        3<sup>ème</sup> Tour
       </div>
  
         <!--la modale-->
@@ -43,24 +46,26 @@
                       <i class="far fa-plus-circle"></i>
                     </button>
                   </div>
-                  <div class="cardWord col-9">
+                  <div class="cardWord col-9"
+                  v-bind:class="{ trouve: card.found }">
                     {{card.word}}
-                  </div>
                     <span v-if="card.found"> 
                       <img src="./img/ico_check.jpg" class="imgCheck">
                     </span>
                     <span v-else> 
                       <img src="./img/ico_cross.jpg" class="imgCross">
                     </span> 
-                    <div v-show="card.descrptionVisible" class="cardDescModal">
+                  </div>
+                    <div v-show="card.descrptionVisible" class="cardDescModal col-10">
                       {{card.descrption}}
                     </div>
+                  
                   </div>
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-lg btn-success" v-on:click="navToMain">Accueil</button>
+                <button type="button" class="btn btn-lg btn-danger" v-on:click="restart">Rejouer</button>
+                <button type="button" class="accueilBtn" v-on:click="navToMain">Accueil</button>
               </div>
             </div>
           </div>
@@ -134,11 +139,11 @@
   <div class='bottomBar'>
     <div class="row">
     <div class="col-4">
-      <img src='img/ico_home.png' alt='règle' class="imgHome" v-on:click="navToMain">
+      <img src='img/main.png' alt="liens" class="imgLink" v-on:click="navToLink">
     </div>
 
     <div class="col-4">
-      <img src='img/main.png' alt="liens" class="imgLink" v-on:click="navToLink">
+      <img src='img/ico_home.png' alt='règle' class="imgHome" v-on:click="navToMain">
     </div>
 
     <div class="col-4">
@@ -146,7 +151,7 @@
     </div>
     </div>
   </div>
-  </div>
+</div>
 
 </body>
 </html>

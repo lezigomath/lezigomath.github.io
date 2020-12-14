@@ -180,7 +180,7 @@ function incrementTimer() {
 }
 
 function resetTimer() {
-  minutes = 01;
+  minutes = 1;
   seconds = "00";
   timerActive = false;
   document.getElementById('timer').classList.remove('times-up');
@@ -213,7 +213,7 @@ function runTimer() {
 
     if (minutes < 0) {
       document.getElementById('seconds').innerHTML = "00";
-      document.getElementById('minutes').innerHTML = "00";
+      document.getElementById('minutes').innerHTML = "0";
       document.getElementById('timer').classList.add('times-up');
       stopTimer();
       $("#smallModal").modal();

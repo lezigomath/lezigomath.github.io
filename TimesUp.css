@@ -8,8 +8,10 @@ h2 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-h4{
-    margin: 10px;
+
+h5 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600 !important;
 }
 
 .bottomBar {
@@ -20,9 +22,14 @@ h4{
     border-radius: 2em;
     margin-left: 2%;
     object-fit: scale-down;
-    margin-top: 35px;
-    position: relative;
+    position: absolute;
+    bottom: 5px;
+    z-index: 1;
 }
+
+.clear{
+    clear:both;
+    }
 
 .bottomBar img {
     max-width: 58px;
@@ -67,7 +74,7 @@ h4{
 }
 
 .imgTour1{
-    max-width: 100px;
+    max-width: 120px;
     max-height: 200px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -89,22 +96,20 @@ h4{
 
 .imgTimer{
     width: inherit;
-    max-height: 58px;
-    max-width: 62px;
+    margin-left: 10px;
+    max-width: 120px;
 }
 
 .imgCross{
-    width: 16px;
-    height: 16px;
+    width: 22px;
+    height: 22px;
     float: right;
-    margin-top: 17px;
 }
 
 .imgCheck{
-    width: 16px;
-    height: 16px;
+    width: 22px;
+    height: 22px;
     float: right;
-    margin-top: 17px;
 }
 
 .imgArtifice{
@@ -112,7 +117,7 @@ h4{
 }
 
 .accesCode {
-    margin: 25px;
+    margin: 18px;
     width: 40%;
     text-align: center;
     height: 35px;
@@ -129,6 +134,14 @@ h4{
     color: black !important;
     font-size: large;
     max-height: 42px;
+    z-index: 500;
+}
+
+.accueilBtn{
+    border-radius: 15% !important;
+    border: 2px solid #444;
+    width: auto;
+    height: auto;
 }
 
 .page{
@@ -148,7 +161,7 @@ h4{
     margin-bottom: 15px;
     padding-top: 20px;
     font-size: 1.5em;
-    color: rgb(50, 70, 151);
+    color: rgb(226, 113, 33);
     text-align: center;
     text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
 }
@@ -231,7 +244,7 @@ h4{
     text-align: center;
     font-family: VerdanaBold;
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: -25px;
 }
 
 body {
@@ -269,16 +282,25 @@ body {
     background: rgb(255, 190, 148);
    /* border: 3px solid #777; */
     border-radius: 12px;
-    /*box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); */
+    /*box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
     margin: 5% auto;
-    width: 70%;
-    height: 120px;
+    width: 100%;
+    height: 120px;*/
+  }
+
+  .timer-display{
+      margin-bottom: 10px;
+      margin-top: 10px;
   }
 
   .timer-control {
     font-size: 2em;
     width: 100%;
     transition: all 0.25s ease-in;
+    font-family: Amarillo;
+    text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+    color : rgb(50, 70, 151);
+    margin-top: 10%;
   }
 
   .timer-control:hover {
@@ -296,7 +318,7 @@ body {
 
 #interface {
         text-align: center;
-        margin-top: 10px;
+        
     }
         button {
           background: none;
@@ -308,8 +330,14 @@ body {
           height: 58px;
           transition: all .2s ease-in;
         }
+
+        #interface button{
+            height: 40px;
+            width: 110%;
+            border: 2px solid #444;
+        }
+
         #interface button:hover {
-            background: #B22222;
             color: #FEFFF1;
           }
 
@@ -321,7 +349,7 @@ body {
             border: none;
             color: #444;
             transition: all .25s ease-in;
-            float: left;
+            top: -5px;
           }
 
           .stepperPlus {
@@ -332,44 +360,46 @@ body {
             border: none;
             color: #444;
             transition: all .25s ease-in;
-            left: -5%;
+            top: -25px;
           }
+
           .resetButton{
               position: relative;
+              border: none !important;
           }
           .stopButton{
-              background-color: chocolate;
+              border: none !important;
               border-radius: 15% !important;
           }
 
         .gameDiv{
-            background: #e8ebc5;
+       /*     background: #e8ebc5;
     border: 2px solid #777;
     border-radius: 12px;
-    /*box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); */
     margin: 5% auto;
-    width: 85%;
-    padding: 2%;
+    width: 90%;
     display: none;
-    height: 320px;
+    height: 340px;
+    z-index: 200;
         }
 
     .currentWord{
         font-size: 1.4em;
         margin: 10px;
-        margin-top: 5%;
     }
 
     #WordPass{
         margin-right: 10%;
         float: right;
         font-size: 0.7em;
-        width: 54px;
-        height: 54px;
+        width: 64px;
+        height: 64px;
         margin-top: 4%;
         background-image: url(./img/false.png);
         background-size: contain;
         background-position-y: center;
+        border: none !important;
     }
 
     #WordFound{
@@ -378,9 +408,10 @@ body {
         font-size: 1.5em;
         background-image: url(./img/true.png);
         background-size: contain;
-        width: 72px;
-        height: 72px;
+        width: 112px;
+        height: 112px;
         background-position-y: center;
+        border: none !important;
     }
 
     .nbWordsLeft{
@@ -391,11 +422,12 @@ body {
         padding: 1%;
         padding-left: 5px;
         position: relative;
-        top: -80px;
+        top: -20px;
         right: -5px;
         float: right;
-        width: 30px;
-        height: 30px;
+        width: 26px;
+        height: 26px;
+        font-size: 0.8em;
     }
 
     .btn.btn-lg.btn-danger{
@@ -413,14 +445,14 @@ body {
     }
 
     .rappelRegles{
-        background: #e8ebc5;
+     /*   background: #e8ebc5;
     border: 3px solid #777;
     border-radius: 12px;
-    /*box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); */
     width: 95%;
     margin: 2.5%;
-    height: 320px;
-    font-size: 0.9em;
+    height: 340px;
+    font-size: 1.1em;
     }
 
     .gameStartBtn{
@@ -428,7 +460,8 @@ body {
         border: 2px solid #444;
         width: auto;
         background-color: rgb(45, 212, 72);
-        margin-top: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     .detailBtn{
@@ -462,11 +495,14 @@ body {
     .cardWord{
         margin-top: 15px;
         font-weight: 500;
+        background-color: white;
+        border-radius: 0.5em;
+        color: red;
     }
 
     .cardDescModal {
         font-size: 0.8em;
-        background-color: blanchedalmond;
+        background-color: rgb(255, 190, 148) !important;
     }
 
     .wordGame{
@@ -476,9 +512,18 @@ body {
         color: black;
         border-radius: 0.5em;
         margin-top: 5%;
+        margin-bottom: 10px;
     }
 
     .buttonsGame{
         margin-top: 5px;
 
+    }
+
+    .modal-content{
+        background-color: rgb(255, 190, 148) !important;
+    }
+
+    .trouve{
+        color: black;
     }

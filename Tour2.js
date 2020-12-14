@@ -27,6 +27,7 @@ function init (){
     app= new Vue ({
         el: '#app',
         data: {
+          accessCode :'',
             cards1 :[],
             cards2 :[],
             currentCards :[],
@@ -38,7 +39,7 @@ function init (){
             navToMain: function(){
                 window.location='./TimesUp.html'
             },
-            navToLink: function(link){
+            navToLink: function(){
                 window.location='./Credits.html'
             },
             navToHelp: function (){
@@ -52,6 +53,9 @@ function init (){
             }, 
             navToTour3: function(){
                 window.location ='./Tour3.html'
+            },
+            restart: function(){
+              window.location='./Tour1.html?code='+'game1'
             },
             
             getRandomCardFromCurrentCards: function (){
@@ -191,7 +195,7 @@ function runTimer() {
 
     if (minutes < 0) {
       document.getElementById('seconds').innerHTML = "00";
-      document.getElementById('minutes').innerHTML = "00";
+      document.getElementById('minutes').innerHTML = "0";
       document.getElementById('timer').classList.add('times-up');
       stopTimer();
       $("#smallModal").modal();

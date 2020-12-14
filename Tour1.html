@@ -21,8 +21,12 @@
 <body>
   <div class='page' id="app">
     <div class="mainWrapper">
+      <h2>
+        Coopération en jeu
+      </h2>
+      <h5>Groupe 1</h5>
         <div class="currentTour">
-          Tour 1
+          1<sup>er</sup> Tour
         </div>
     
         <!--la modale-->
@@ -39,19 +43,21 @@
                       <i class="far fa-plus-circle"></i>
                     </button>
                   </div>
-                  <div class="cardWord col-9">
+                  <div class="cardWord col-9"
+                  v-bind:class="{ trouve: card.found }">
                     {{card.word}}
-                  </div>
                     <span v-if="card.found"> 
                       <img src="./img/ico_check.jpg" class="imgCheck">
                     </span>
                     <span v-else> 
                       <img src="./img/ico_cross.jpg" class="imgCross">
                     </span> 
-                    <div v-show="card.descrptionVisible" class="cardDescModal">
+                  </div>
+                    <div v-show="card.descrptionVisible" class="cardDescModal col-10">
                       {{card.descrption}}
                     </div>
                   </div>
+                  
                 </div>
               </div>
               <div class="modal-footer">
@@ -79,6 +85,42 @@
 
     <!--game div, active apres onclick:showgame()-->
     <div v-if ="currentCardIsLoaded" class="gameDiv" id="gameD">
+
+      <div class="pomodoroTimer">
+        <div id="interface" class="animated row">
+          <div class="col-6">
+            <button class="resetButton" type="button" OnClick="resetTimer()" >reset</button>
+          </div>
+          <div class="col-6">
+            <button class="stopButton" type="button" Onclick="stopTurn()" a href="#" data-toggle="modal" data-target="#smallModal">Arreter le tour</button>
+          </div>
+        </div>
+        <div class="timer-display row">
+          <div class="row col-2">
+            <div>
+          <button id="step-down" class="stepperMoins animated col-2" OnClick="decrementTimer()">
+            <i class="fa fa-1x fa-minus-circle"></i>
+          </button>
+        </div>
+        <div>
+          <button id="step-up" class="stepperPlus animated col-2" type="button" OnClick="incrementTimer()">
+            <i class="fa fa-1x fa-plus-circle"></i>
+          </button>
+        </div>
+        </div>
+          <div class="col-4" OnClick="startTimer()">
+            <img src="img/timer.png" alt='ico_timer' class="imgTimer">
+          </div>
+          <div id="timer" class="timer-control col-6" OnClick="startTimer()">
+            <span id="minutes">1</span>
+            <span class="seperator">:</span>
+            <span id="seconds">00</span>
+          </div>
+        </div>
+    </div>
+
+    <div class="mainGameDiv">
+
       <div class="currentWord row">
         <div class="detailWord col-2">
           <button class="detailBtn" type="button" OnClick="showDetail()">
@@ -103,44 +145,18 @@
         <button id="WordPass" type="button" v-on:click='nextCard()'>
         </button>
       </div>
-    </div>
-    <div class="pomodoroTimer col-9">
-      <div class="timer-display row">
-        <button id="step-down" class="stepperMoins animated col-2" OnClick="decrementTimer()">
-          <i class="fa fa-2x fa-minus-circle"></i>
-        </button>
-        <div id="timer" class="timer-control col-8" OnClick="startTimer()">
-          <span id="minutes">1</span>
-          <span class="seperator">:</span>
-          <span id="seconds">00</span>
-        </div>
-        <button id="step-up" class="stepperPlus animated col-2" type="button" OnClick="incrementTimer()">
-          <i class="fa fa-2x fa-plus-circle"></i>
-        </button>
-      </div>
-      <div id="interface" class="animated row">
-        <div class="col-4">
-          <button class="resetButton" type="button" OnClick="resetTimer()" >reset</button>
-        </div>
-      <div class="col-4" OnClick="startTimer()">
-        <img src="img/timer.png" alt='ico_timer' class="imgTimer">
-      </div>
-        <div class="col-4">
-          <button class="stopButton" type="button" Onclick="stopTurn()" a href="#" data-toggle="modal" data-target="#smallModal">Stop Tour</button>
-        </div>
-      </div>
-
 
   </div>
+</div>
 
   <div class='bottomBar'>
     <div class="row">
     <div class="col-4">
-      <img src='img/ico_home.png' alt='règle' class="imgHome" v-on:click="navToMain">
+      <img src='img/main.png' alt="liens" class="imgLink" v-on:click="navToLink">
     </div>
 
     <div class="col-4">
-      <img src='img/main.png' alt="liens" class="imgLink" v-on:click="navToLink">
+      <img src='img/ico_home.png' alt='règle' class="imgHome" v-on:click="navToMain">
     </div>
 
     <div class="col-4">
@@ -148,7 +164,7 @@
     </div>
     </div>
   </div>
-  </div>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
