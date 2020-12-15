@@ -49,6 +49,7 @@ h5 {
     margin-left: 10px;
     margin-right: 10px;
     object-fit: scale-down;
+    cursor: pointer;
 }
 
 .imgMain {
@@ -60,12 +61,14 @@ h5 {
 
 .imgHome{
     max-width: 64px;
+    cursor: pointer;
 }
 
 .imgLink {
     margin-left: 10px;
     margin-right: 10px;
     object-fit: scale-down;
+    cursor: pointer;
 }
 
 .img {
@@ -159,7 +162,7 @@ h5 {
 .currentTour{
     font-family: Amarillo;
     margin-bottom: 15px;
-    padding-top: 20px;
+    padding-top: 10px;
     font-size: 1.5em;
     color: rgb(226, 113, 33);
     text-align: center;
@@ -273,7 +276,7 @@ body {
 
 .scrollspy-example {
     position: relative;
-    height: 260px;
+    height: 280px;
     margin-top: .5rem;
     overflow: auto;
 }
@@ -289,8 +292,7 @@ body {
   }
 
   .timer-display{
-      margin-bottom: 10px;
-      margin-top: 10px;
+   height: 85px;
   }
 
   .timer-control {
@@ -418,11 +420,10 @@ body {
         background-color: chocolate;
         border-radius: 50%;
         color: white;
-        border: 1px solid #444;
         padding: 1%;
         padding-left: 5px;
         position: relative;
-        top: -20px;
+        top: -30px;
         right: -5px;
         float: right;
         width: 26px;

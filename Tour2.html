@@ -91,6 +91,42 @@
 
     <!--game div, active apres onclick:showgame()-->
     <div v-if ="currentCardIsLoaded" class="gameDiv" id="gameD">
+
+      <div class="pomodoroTimer">
+        <div id="interface" class="animated row">
+          <div class="col-6">
+            <button class="resetButton" type="button" OnClick="resetTimer()" >reset</button>
+          </div>
+          <div class="col-6">
+            <button class="stopButton" type="button" Onclick="stopTurn()" a href="#" data-toggle="modal" data-target="#smallModal">Arreter le tour</button>
+          </div>
+        </div>
+        <div class="timer-display row">
+          <div class="row col-2">
+            <div>
+          <button id="step-down" class="stepperMoins animated col-2" OnClick="decrementTimer()">
+            <i class="fa fa-1x fa-minus-circle"></i>
+          </button>
+        </div>
+        <div>
+          <button id="step-up" class="stepperPlus animated col-2" type="button" OnClick="incrementTimer()">
+            <i class="fa fa-1x fa-plus-circle"></i>
+          </button>
+        </div>
+        </div>
+          <div class="col-4" OnClick="startTimer()">
+            <img src="img/timer.png" alt='ico_timer' class="imgTimer">
+          </div>
+          <div id="timer" class="timer-control col-6" OnClick="startTimer()">
+            <span id="minutes">1</span>
+            <span class="seperator">:</span>
+            <span id="seconds">00</span>
+          </div>
+        </div>
+    </div>
+
+    <div class="mainGameDiv">
+
       <div class="currentWord row">
         <div class="detailWord col-2">
           <button class="detailBtn" type="button" OnClick="showDetail()">
@@ -107,41 +143,17 @@
       <div class="wordDesc" id="wordDetail">
         {{currentCard.descrption}}
       </div>
+      <div class="buttonsGame">
 
-      <button id="WordFound" type="button" v-on:click="foundCard()">
-      </button>
+        <button id="WordFound" type="button" v-on:click="foundCard()">
+        </button>
 
-      <button id="WordPass" type="button" v-on:click='nextCard()'>
-      </button>
+        <button id="WordPass" type="button" v-on:click='nextCard()'>
+        </button>
+      </div>
 
   </div>
-
-  <div class="pomodoroTimer col-9">
-    <div class="timer-display row">
-      <button id="step-down" class="stepperMoins animated col-2" OnClick="decrementTimer()">
-        <i class="fa fa-2x fa-minus-circle"></i>
-      </button>
-      <div id="timer" class="timer-control col-8" OnClick="startTimer()">
-        <span id="minutes">1</span>
-        <span class="seperator">:</span>
-        <span id="seconds">00</span>
-      </div>
-      <button id="step-up" class="stepperPlus animated col-2" type="button" OnClick="incrementTimer()">
-        <i class="fa fa-2x fa-plus-circle"></i>
-      </button>
-    </div>
-    <div id="interface" class="animated row">
-      <div class="col-4">
-        <button class="resetButton" type="button" OnClick="resetTimer()" >reset</button>
-      </div>
-    <div class="col-4" OnClick="startTimer()">
-      <img src="img/timer.png" alt='ico_timer' class="imgTimer">
-    </div>
-      <div class="col-4">
-        <button class="stopButton" type="button" Onclick="stopTurn()" a href="#" data-toggle="modal" data-target="#smallModal">Stop Tour</button>
-      </div>
-    </div>
-  </div>
+</div>
 
   <div class='bottomBar'>
     <div class="row">
