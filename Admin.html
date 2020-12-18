@@ -17,16 +17,26 @@
         <div class='entete'>
             <img src='img/bandeau.png' alt='bandeau' class='imgBandeau'>
         </div>
-            <img src="img/accueil.png" alt='ico_accueil' class="imgMain">
+
             <br>
             <h2 class="col-12">
                 Coopération en jeu
             </h2>
-            
-            <input id="myInput" type="text" placeholder ='rentrez code accès' v-model='accesCode' class='accesCode col-6'>
             <div>
-                <button :disabled="! accesCode" type="button" class="btn btn-success col-5" id="myBtn" v-on:click='ValidateCode'>Valider</button>
+                <input type="text" placeholder ='Mot' >
+
             </div>
+            <div>
+                <input type="text" placeholder ='Description' >
+
+            </div>
+            <div>
+                <input type="text" placeholder ='Jeu N°' >
+
+            </div>
+
+            <button type="button" class="btn btn-success col-5" v-on:click='SendBdd'>Envoyer</button>
+
             <div class="clear"></div>
             <div class='bottomBar'>
               <div class="row">

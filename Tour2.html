@@ -33,7 +33,7 @@
       </div>
 
         <!--la modale-->
-        <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal fade" id="smallModal" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
           <div class="modal-dialog modal-sm">
             <div class="modal-content">
               <div class="modal-body">
@@ -42,7 +42,7 @@
                 <div class="lastTurnDetail" v-for="(card, index) in playedCards" :key="card.id">
                   <div class="row">
                   <div class="col-2">
-                    <button class="detailBtn" type="button" v-on:click="showCurrentDetail(index)">
+                    <button class="detailBtnModale" type="button" v-on:click="showCurrentDetail(index)">
                       <i class="far fa-plus-circle"></i>
                     </button>
                   </div>
@@ -64,7 +64,7 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Fermer</button>
+               <!--<button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Fermer</button> --> 
                 <button type="button" class="btn btn-lg btn-success" v-on:click="navToTour3">Tour suivant</button>
               </div>
             </div>
@@ -93,13 +93,11 @@
     <div v-if ="currentCardIsLoaded" class="gameDiv" id="gameD">
 
       <div class="pomodoroTimer">
-        <div id="interface" class="animated row">
-          <div class="col-6">
+        <div id="interface" class="animated">
+          <!--<div class="col-6">
             <button class="resetButton" type="button" OnClick="resetTimer()" >reset</button>
-          </div>
-          <div class="col-6">
+          </div>-->
             <button class="stopButton" type="button" Onclick="stopTurn()" a href="#" data-toggle="modal" data-target="#smallModal">Arreter le tour</button>
-          </div>
         </div>
         <div class="timer-display row">
           <div class="row col-2">
@@ -118,7 +116,7 @@
             <img src="img/timer.png" alt='ico_timer' class="imgTimer">
           </div>
           <div id="timer" class="timer-control col-6" OnClick="startTimer()">
-            <span id="minutes">1</span>
+            <span id="minutes">2</span>
             <span class="seperator">:</span>
             <span id="seconds">00</span>
           </div>
@@ -128,14 +126,13 @@
     <div class="mainGameDiv">
 
       <div class="currentWord row">
-        <div class="detailWord col-2">
-          <button class="detailBtn" type="button" OnClick="showDetail()">
-            <i class="far fa-plus-circle"></i>
-          </button>
+
+        <div class="col-12 wordGame">
+         <button class="detailBtn" type="button" OnClick="showDetail()">
+           <i class="far fa-plus-circle"></i>
+         </button>
+         {{currentCard.word}}
         </div>
-           <div class="col-10 wordGame">
-            {{currentCard.word}}
-           </div>
       </div>
       <span class="nbWordsLeft">
         {{currentCards.length}}

@@ -127,7 +127,7 @@ window.onload = init;
 var timerActive = false;
 var pomoTimer = 0;
 var seconds = 00;
-var minutes = 1;
+var minutes = 2;
 
 function decrementTimer() {
   if (timerActive) {
@@ -162,7 +162,7 @@ function incrementTimer() {
 }
 
 function resetTimer() {
-  minutes = 01;
+  minutes = 02;
   seconds = "00";
   timerActive = false;
   document.getElementById('timer').classList.remove('times-up');

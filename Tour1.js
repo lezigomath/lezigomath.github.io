@@ -132,7 +132,7 @@ function init (){
             else if (this.accessCode == "game2"){
                 this.currentCards = this.cards2;
             }
-            else alert("code error");
+            else window.location='./TimesUp.html';
               
             this.getRandomCardFromCurrentCards();
             this.currentCardIsLoaded = true;
@@ -145,7 +145,7 @@ window.onload = init;
 var timerActive = false;
 var pomoTimer = 0;
 var seconds = 00;
-var minutes = 1;
+var minutes = 2;
 
 function decrementTimer() {
   if (timerActive) {
@@ -180,7 +180,7 @@ function incrementTimer() {
 }
 
 function resetTimer() {
-  minutes = 1;
+  minutes = 2;
   seconds = "00";
   timerActive = false;
   document.getElementById('timer').classList.remove('times-up');
@@ -260,3 +260,4 @@ function showDetail(){
     else {
       document.getElementById('wordDetail').style.display = "none";}
     }
+
