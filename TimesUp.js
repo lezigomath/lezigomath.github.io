@@ -18,32 +18,21 @@ function init(){
             navtoTour1: function (){
                 window.location ='./Tour1.html'
             },
-            ValidateCode: function(){
+            ValidateCode: function(e){
                 console.log(this.accesCode)
                 if (this.accesCode== "adminoptim"){
                     window.location='./Admin.html'
                 }
                 else {
                 window.location='./Tour1.html?code='+this.accesCode /*+'&eye=hdh'; (exemple si on rajouter des param à passer)*/
-                const GetCode = URLSearchParams.get('code')
+               
                 }
+                e.preventDefault();
             },
         }
     });
 }
 
-
 var app;    
 
 window.onload = init;
-
-window.onload=function(){
-    document.getElementById("myInput")
-    .addEventListener("keyup", function(event) {
-    event.preventDefault();
-    if (event.key === 13) {
-        document.getElementById("myBtn").click();
-    }
-});
-  }
-

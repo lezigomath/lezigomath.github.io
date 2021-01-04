@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <title>TIMESUP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <link rel="stylesheet" href="TimesUp.css" type="text/css" media="screen" />
@@ -89,7 +91,6 @@
       <button :disabled='!currentCardIsLoaded' type="button" class="gameStartBtn" v-on:click="startGame()" >Commencer</button>
     </div>
 
-
     <!--game div, active apres onclick:showgame()-->
     <div v-if ="currentCardIsLoaded" class="gameDiv" id="gameD">
 
@@ -113,7 +114,7 @@
           </button>
         </div>
         </div>
-          <div class="col-4" OnClick="startTimer()">
+          <div class="col-4" >
             <img src="img/timer.png" alt='ico_timer' class="imgTimer">
           </div>
           <div id="timer" class="timer-control col-6" OnClick="startTimer()">

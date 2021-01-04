@@ -27,7 +27,6 @@ function init (){
     app= new Vue ({
         el: '#app',
         data: {
-          accessCode :'',
             cards1 :[],
             cards2 :[],
             currentCards :[],
@@ -55,7 +54,7 @@ function init (){
                 window.location ='./Tour3.html'
             },
             restart: function(){
-              window.location='./Tour1.html?code='+'game1'
+              window.location='./Tour1.html?code='+ sessionStorage.getItem("code");
             },
             
             getRandomCardFromCurrentCards: function (){

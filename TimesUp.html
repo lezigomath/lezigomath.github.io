@@ -5,11 +5,14 @@
     <meta charset="utf-8">
     <title>TIMESUP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="TimesUp.css" type="text/css" media="screen" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <script src="TimesUp.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/ico" href="img/favicon.ico"/>
   </head>
 
   <body>
@@ -22,11 +25,12 @@
             <h2 class="col-12">
                 Coopération en jeu
             </h2>
-            
+            <form v-on:submit='ValidateCode'>
             <input id="myInput" type="text" placeholder ='rentrez code accès' v-model='accesCode' class='accesCode col-6'>
             <div>
-                <button :disabled="! accesCode" type="button" class="btn btn-success col-5" id="myBtn" v-on:click='ValidateCode'>Valider</button>
+                <button :disabled="! accesCode" type="submit" class="btn btn-success col-5" id="myBtn" v-on:click='ValidateCode'>Valider</button>
             </div>
+            </form>
             <div class="clear"></div>
             <div class='bottomBar'>
               <div class="row">
@@ -44,6 +48,5 @@
               </div>
             </div>
     </div>
-
   </body>
 </html>
