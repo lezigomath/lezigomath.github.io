@@ -127,21 +127,24 @@ var timerActive = false;
 var pomoTimer = 0;
 var seconds = 00;
 var minutes = 2;
+var increment = 30;
 
 function decrementTimer() {
   if (timerActive) {
     return;
   }
 
-  if (minutes > 1 && minutes < 35) {
-    minutes -= 1;
+  if (seconds ==0) {
+   seconds = increment
+   minutes --
+  }
+  else{
+    seconds ="00"
   }
 
-  if (minutes < 10) {
+    document.getElementById("seconds").innerHTML = seconds;
     document.getElementById("minutes").innerHTML = minutes;
-  } else {
-    document.getElementById("minutes").innerHTML = minutes;
-  }
+  
 }
 
 function incrementTimer() {
@@ -149,15 +152,18 @@ function incrementTimer() {
     return;
   }
 
-  if (minutes >= 1 && minutes < 35) {
-    minutes += 1;
+  if (seconds == 0) {
+    seconds = increment;
+  } 
+  else{
+    seconds ="00";
+    minutes ++;
   }
 
-  if (minutes < 10) {
+ 
+    document.getElementById("seconds").innerHTML = seconds;
     document.getElementById("minutes").innerHTML = minutes;
-  } else {
-    document.getElementById("minutes").innerHTML = minutes;
-  }
+  
 }
 
 function resetTimer() {

@@ -8,7 +8,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
   <link rel="stylesheet" href="TimesUp.css" type="text/css" media="screen" />
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
@@ -33,6 +33,31 @@
         <div class="currentTour">
           1<sup>er</sup> Tour
         </div>
+
+        <div class="pomodoroTimer">
+          <div class="timer-display row">
+            <div class="row col-2">
+              <div>
+            <button id="step-down" class="stepperMoins animated col-2" OnClick="decrementTimer()">
+              <i class="fa fa-1x fa-minus-circle"></i>
+            </button>
+          </div>
+          <div>
+            <button id="step-up" class="stepperPlus animated col-2" type="button" OnClick="incrementTimer()">
+              <i class="fa fa-1x fa-plus-circle"></i>
+            </button>
+          </div>
+          </div>
+            <div class="col-4" >
+              <img src="img/timer.png" alt='ico_timer' class="imgTimer">
+            </div>
+            <div id="timer" class="timer-control col-6" OnClick="startTimer()">
+              <span id="minutes">2</span>
+              <span class="seperator">:</span>
+              <span id="seconds">00</span>
+            </div>
+          </div>
+      </div>
     
         <!--la modale-->
         <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" data-backdrop="static" aria-hidden="true">
@@ -94,36 +119,12 @@
     <!--game div, active apres onclick:showgame()-->
     <div v-if ="currentCardIsLoaded" class="gameDiv" id="gameD">
 
-      <div class="pomodoroTimer">
         <div id="interface" class="animated">
           <!--<div class="col-6">
             <button class="resetButton" type="button" OnClick="resetTimer()" >reset</button>
           </div>-->
             <button class="stopButton" type="button" Onclick="stopTurn()" a href="#" data-toggle="modal" data-target="#smallModal">Arreter le tour</button>
         </div>
-        <div class="timer-display row">
-          <div class="row col-2">
-            <div>
-          <button id="step-down" class="stepperMoins animated col-2" OnClick="decrementTimer()">
-            <i class="fa fa-1x fa-minus-circle"></i>
-          </button>
-        </div>
-        <div>
-          <button id="step-up" class="stepperPlus animated col-2" type="button" OnClick="incrementTimer()">
-            <i class="fa fa-1x fa-plus-circle"></i>
-          </button>
-        </div>
-        </div>
-          <div class="col-4" >
-            <img src="img/timer.png" alt='ico_timer' class="imgTimer">
-          </div>
-          <div id="timer" class="timer-control col-6" OnClick="startTimer()">
-            <span id="minutes">2</span>
-            <span class="seperator">:</span>
-            <span id="seconds">00</span>
-          </div>
-        </div>
-    </div>
 
     <div class="mainGameDiv">
 
