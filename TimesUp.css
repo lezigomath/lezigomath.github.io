@@ -23,7 +23,7 @@ h5 {
     margin-left: 2%;
     object-fit: scale-down;
     position: relative;
-    bottom: -30px;
+    bottom: -40px;
     z-index: 1;
 }
 
@@ -135,6 +135,17 @@ h5 {
     border-radius: 0.5em !important;
     border: 2px solid black !important;
     background-color: rgb(45, 212, 72) !important;
+    color: black !important;
+    font-size: large;
+    max-height: 42px;
+    z-index: 500;
+}
+
+.btn.btn-successRed {
+    margin: 2%;
+    border-radius: 0.5em !important;
+    border: 2px solid black !important;
+    background-color: rgb(223, 17, 69) !important;
     color: black !important;
     font-size: large;
     max-height: 42px;
@@ -387,7 +398,7 @@ body {
     margin: 5% auto;
     width: 90%;
     display: none;
-    height: 310px;
+    height: 300px;
     z-index: 200;
         }
 
@@ -467,7 +478,6 @@ body {
         width: auto;
         background-color: rgb(45, 212, 72);
         margin-top: 10px;
-        margin-bottom: 10px;
     }
 
     .detailBtn{

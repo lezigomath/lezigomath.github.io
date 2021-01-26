@@ -33,6 +33,15 @@ async function init(){
                 }
                 console.log(wordtoSend);
                 mongoCollection.insertOne(wordtoSend);
+            },
+            deleteWord: function(){
+                var wordtoSend = {
+                    word: this.name,
+                    descrption: this.description,
+                    game: this.gameID,
+                }
+                console.log(wordtoSend);
+                mongoCollection.deleteOne(wordtoSend);
             }
         }
     });
