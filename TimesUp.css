@@ -560,5 +560,30 @@ body {
 
     .bandeauTimer{
         margin-bottom: 15px;
-       
      }
+
+     .my_table{
+         width: 100%;
+     }
+
+     table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 30px;
+      }
+       th {
+        background: #ccc;
+      }
+      
+      th, td {
+        border: 1px solid black;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background: #efefef;
+      }
+      
+      tr:hover {
+        background: #d1d1d1;
+      }

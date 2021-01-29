@@ -12,7 +12,6 @@ const appConfig = {
             const mongoCollection = mongo.db("TimesUp").collection("cards");
             let cards = await mongoCollection.find();
 
-
             for(var i = 0; i  < cards.length ; i++)
               cards[i].descrptionVisible = false;
 
@@ -33,6 +32,9 @@ function init (){
             currentCard : null,
             currentCardIsLoaded : false,
             playedCards:[],
+            gameID :'',
+            name :'',
+            description:'',
         },
         methods: {
             navToMain: function(){
@@ -61,6 +63,24 @@ function init (){
                   stopTurn();
                 }
             },
+            sendWord: function(){
+              var wordtoSend = {
+                  word: this.name,
+                  descrption: this.description,
+                  game: this.gameID,
+              }
+              console.log(wordtoSend);
+              mongoCollection.insertOne(wordtoSend);
+          },
+          deleteWord: function(){
+              var wordtoSend = {
+                  word: this.name,
+                  descrption: this.description,
+                  game: this.gameID,
+              }
+              console.log(wordtoSend);
+              mongoCollection.deleteOne(wordtoSend);
+          },
 
             foundCard: function (){
                 this.currentCard.found =true;
