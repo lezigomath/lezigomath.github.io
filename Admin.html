@@ -42,7 +42,7 @@
 
             <button type="button" class="btn btn-successRed col-5" v-on:click='deleteWord'>Supprimer</button>
 
-            <input id="myInput" type="text" placeholder ='Trier par jeu' v-model='gameFilter' class='accesCode col-6'>
+            <input id="myInput" type="text" placeholder ='Trier par jeu' class='accesCode col-6'>
 
             <div v-show="currentCardIsLoaded">
 
@@ -59,12 +59,12 @@
                 </thead>
                 <tbody>
                 <tr>
-                  <td>{{card.word}}</td>
-                  <td>{{card.description}}</td>
-                  <td>{{card.game}}</td>
+                  <td>{{cards[0].word}}</td>
+                  <td>{{cards[0].descrption}}</td>
+                  <td>{{cards[0].game}}</td>
                 </tr>
                 <tr>
-                  <td>.</td>
+                  <td>{{cards[48].word}}</td>
                   <td>.</td>
                   <td>.</td>
                 </tr>

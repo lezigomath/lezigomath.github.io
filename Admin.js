@@ -55,10 +55,6 @@ function init (){
                 window.location ='./Tour2.html'
             }, 
 
-            loadCard: function(){
-                this.cards = await initCards()
-            },
-
             getRandomCardFromCurrentCards: function (){
                 if (this.currentCards.length > 0){
                     var randomIdx = Math.trunc(Math.random()*100 % this.currentCards.length );
@@ -144,6 +140,7 @@ function init (){
         async created (){
           
             let cards = await initCards();
+            this.cards = cards;
             this.cards1 = cards.filter(card => card.game == 1);
             this.cards2 = cards.filter(card => card.game == 2);
             this.currentCardIsLoaded = true;
