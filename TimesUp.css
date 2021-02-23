@@ -420,6 +420,15 @@ body {
         border: none !important;
     }
 
+    .WordDel{
+        width: 35px;
+        height: 35px;
+        background-image: url(./img/false.png);
+        background-size: contain;
+        background-position-y: center;
+        border: none !important;
+    }
+
     #WordFound{
         /*margin-right: 15%;
         margin-left: 10%;*/

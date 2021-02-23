@@ -42,9 +42,12 @@
 
             <button type="button" class="btn btn-successRed col-5" v-on:click='deleteWord'>Supprimer</button>
 
-            <input id="myInput" type="text" placeholder ='Trier par jeu' class='accesCode col-6'>
+           <!-- <input id="myInput" type="text" placeholder ='Trier par jeu' class='accesCode col-6'> -->
 
             <div v-show="currentCardIsLoaded">
+
+              <button type="button" class="btn btn-success col-5" v-on:click='sortBy'>tri alphabetique</button>
+
 
               <table border="1" width="100%">
                 <col style="width:20%">
@@ -55,23 +58,15 @@
                   <th>Mot</th>
                   <th>Description</th>
                   <th>Jeu n°</th>
+                  <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>{{cards[0].word}}</td>
-                  <td>{{cards[0].descrption}}</td>
-                  <td>{{cards[0].game}}</td>
-                </tr>
-                <tr>
-                  <td>{{cards[48].word}}</td>
-                  <td>.</td>
-                  <td>.</td>
-                </tr>
-                <tr>
-                  <td>.</td>
-                  <td>.</td>
-                  <td>.</td>
+                <tr v-for="card in cards">
+                  <td>{{ card.word }}</td>
+                  <td>{{ card.descrption }}</td>
+                  <td>{{ card.game }}</td>
+                  <td><button type="button" class="WordDel" v-on:click="tryDeleteWord(card)"> </button></td>
                 </tr>
                 </tbody>
               </table>

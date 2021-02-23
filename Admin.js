@@ -2,14 +2,23 @@ const appId = "timesup-vrylc";
 const appConfig = {
     id: appId};
 
+
+    let mongoCollection;
+
     async function initCards() {
         let user;
         try {
+
+          if(mongoCollection == null){
             const app = new Realm.App(appConfig);
             user = await app.logIn(Realm.Credentials.anonymous());
 
             const mongo = app.services.mongodb("mongodb-atlas");
-            const mongoCollection = mongo.db("TimesUp").collection("cards");
+
+          
+            mongoCollection = mongo.db("TimesUp").collection("cards");
+
+          }
             let cards = await mongoCollection.find();
 
             for(var i = 0; i  < cards.length ; i++)
@@ -21,7 +30,8 @@ const appConfig = {
         }
     }
 
-function init (){
+async function init  (){
+   document.documentElement.requestFullscreen();
     app= new Vue ({
         el: '#app',
         data: {
@@ -65,7 +75,18 @@ function init (){
                   stopTurn();
                 }
             },
+
+            sortBy: function(){
+              this.cards.sort(wordComparer);
+               // window.location.reload();
+            },
+            
+
             sendWord: function(){
+              if(this.name == "" || this.description == "" || this.game == ""){
+                alert("Un des champs obligatoire n'est pas rempli");
+                return;
+              }
               var wordtoSend = {
                   word: this.name,
                   descrption: this.description,
@@ -73,7 +94,9 @@ function init (){
               }
               console.log(wordtoSend);
               mongoCollection.insertOne(wordtoSend);
+              this.loadCards();
           },
+
           deleteWord: function(){
               var wordtoSend = {
                   word: this.name,
@@ -84,45 +107,15 @@ function init (){
               mongoCollection.deleteOne(wordtoSend);
           },
 
-            foundCard: function (){
-                this.currentCard.found =true;
-                this.playedCards.push(this.currentCard);
-                this.getRandomCardFromCurrentCards();
-            },
-
-            nextCard: function(){
-                this.currentCard.found = false;
-                this.playedCards.push(this.currentCard);
-                this.getRandomCardFromCurrentCards();
-            },
+          tryDeleteWord: function(card){
+            if(confirm("Voulez vous supprimer le mot " + card.word)){
+              mongoCollection.deleteOne( { "_id" : card._id });
+              this.loadCards();
+            }
+        },
 
             getFoundCards: function(){
                 return this.playedCards.filter(card => card.found);
-            },
-
-            onFoundBtnClick: function (){
-              this.foundCard();
-              this.addSessionStorage();
-            },
-
-            addSessionStorage: function(){
-                let cardString = JSON.stringify(this.getFoundCards());
-                if(typeof(Storage) !== "undefined") {
-                    sessionStorage.setItem("cards",cardString);
-                }
-                else {
-                    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
-                }
-              },
-            
-            getFromSessionStorage: function(){
-              let cardObj = JSON.parse(this.cardString);
-              sessionStorage.getItem("cards");
-            },
-
-            comptCardPlayed: function(){
-              let nbCardPlayed = 53 - this.currentCards.length;
-              return nbCardPlayed;
             },
 
             showCurrentDetail : function(cardid){
@@ -133,19 +126,23 @@ function init (){
               this.playedCards[cardid].descrptionVisible = false
              }
              else{this.playedCards[cardid].descrptionVisible = true}
-            }
+            },
+
+            loadCards : async function(){
+              let cards = await initCards();
+                this.cards = cards;
+                this.cards1 = cards.filter(card => card.game == 1);
+                this.cards2 = cards.filter(card => card.game == 2);
+                this.currentCardIsLoaded = true;
+            },
         },
 
+        
 
         async created (){
-          
-            let cards = await initCards();
-            this.cards = cards;
-            this.cards1 = cards.filter(card => card.game == 1);
-            this.cards2 = cards.filter(card => card.game == 2);
-            this.currentCardIsLoaded = true;
+          await this.loadCards();
+            
         },
-    
     })
 }
 
@@ -176,3 +173,15 @@ function showDetail(){
     else {
       document.getElementById('wordDetail').style.display = "none";}
     }
+
+
+    function wordComparer(a, b) {
+      if (a.word > b.word) {
+        return 1;
+      }
+      if (a.word < b.word) {
+        return -1;
+      }
+      return 0;
+    };
+    
