@@ -80,6 +80,11 @@ async function init  (){
               this.cards.sort(wordComparer);
                // window.location.reload();
             },
+
+            sortByGame: function(){
+              this.cards.sort(gameComparer);
+               // window.location.reload();
+            },
             
 
             sendWord: function(){
@@ -182,6 +187,14 @@ function showDetail(){
       if (a.word < b.word) {
         return -1;
       }
-      return 0;
+      return 0;}
+
+      function gameComparer(a, b) {
+        if (a.game > b.game) {
+          return 1;
+        }
+        if (a.game < b.game) {
+          return -1;
+        }
+        return 0;
     };
-    
