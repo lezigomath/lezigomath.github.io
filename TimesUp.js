@@ -1,5 +1,5 @@
 async function init  (){
-    document.documentElement.requestFullscreen();
+    
     app= new Vue({
         el : "#app",
         data: {
