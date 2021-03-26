@@ -11,7 +11,7 @@ function init(){
         },
         methods: {
             navToMain: function(){
-                window.location='./TimesUp.html'
+                window.location='./Accueil.html'
             },
             navToLink: function(link){
                 window.location='./Credits.html'

@@ -38,7 +38,7 @@ function init (){
         },
         methods: {
             navToMain: function(){
-                window.location='./TimesUp.html'
+                window.location='./Accueil.html'
             },
             navToLink: function(link){
                 window.location='./Credits.html'
@@ -91,6 +91,7 @@ function init (){
             nextCard: function(){
                 this.currentCard.found = false;
                 this.playedCards.push(this.currentCard);
+                this.currentCards.push(this.currentCard);
                 this.getRandomCardFromCurrentCards();
             },
 
@@ -147,12 +148,80 @@ function init (){
             let cards = await initCards();
             this.cards1 = cards.filter(card => card.game == 1);
             this.cards2 = cards.filter(card => card.game == 2);
+            this.cards3 = cards.filter(card => card.game == 3);
+            this.cards4 = cards.filter(card => card.game == 4);
+            this.cards5 = cards.filter(card => card.game == 5);
+            this.cards6 = cards.filter(card => card.game == 6);
+            this.cards7 = cards.filter(card => card.game == 7);
+            this.cards8 = cards.filter(card => card.game == 8);
+            this.cards9 = cards.filter(card => card.game == 9);
+            this.cards10 = cards.filter(card => card.game == 10);
+            this.cards11 = cards.filter(card => card.game == 11);
+            this.cards12 = cards.filter(card => card.game == 12);
+            this.cards13 = cards.filter(card => card.game == 13);
+            this.cards14 = cards.filter(card => card.game == 14);
+            this.cards15 = cards.filter(card => card.game == 15);
+            this.cards16 = cards.filter(card => card.game == 16);
+            this.cards17 = cards.filter(card => card.game == 17);
+            this.cards18 = cards.filter(card => card.game == 18);
+            this.cards19 = cards.filter(card => card.game == 19);
             if (this.accessCode == "game1"){
                 this.currentCards = this.cards1;
             }
             else if (this.accessCode == "game2"){
                 this.currentCards = this.cards2;
             }
+            else if (this.accessCode == "game3"){
+              this.currentCards = this.cards3;
+            }
+            else if (this.accessCode == "game4"){
+              this.currentCards = this.cards4;
+            }
+            else if (this.accessCode == "game5"){
+            this.currentCards = this.cards5;
+            }
+            else if (this.accessCode == "game6"){
+              this.currentCards = this.cards6;
+            }
+            else if (this.accessCode == "game7"){
+              this.currentCards = this.cards7;
+            }
+            else if (this.accessCode == "game8"){
+              this.currentCards = this.cards8;
+            }
+            else if (this.accessCode == "game9"){
+              this.currentCards = this.cards9;
+            }
+            else if (this.accessCode == "game10"){
+              this.currentCards = this.cards10;
+            }
+            else if (this.accessCode == "game11"){
+              this.currentCards = this.cards11;
+          }
+          else if (this.accessCode == "game12"){
+            this.currentCards = this.cards12;
+          }
+          else if (this.accessCode == "game13"){
+            this.currentCards = this.cards13;
+          }
+          else if (this.accessCode == "game14"){
+          this.currentCards = this.cards14;
+          }
+          else if (this.accessCode == "game15"){
+            this.currentCards = this.cards15;
+          }
+          else if (this.accessCode == "game16"){
+            this.currentCards = this.cards16;
+          }
+          else if (this.accessCode == "game17"){
+            this.currentCards = this.cards17;
+          }
+          else if (this.accessCode == "game18"){
+            this.currentCards = this.cards18;
+          }
+          else if (this.accessCode == "game19"){
+            this.currentCards = this.cards19;
+          }
             else window.location='./TimesUp.html';
               
             this.getRandomCardFromCurrentCards();

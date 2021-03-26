@@ -36,7 +36,7 @@ function init (){
         },
         methods: {
             navToMain: function(){
-                window.location='./TimesUp.html'
+                window.location='./Accueil.html'
             },
             navToLink: function(){
                 window.location='./Credits.html'
@@ -77,6 +77,7 @@ function init (){
             nextCard: function(){
                 this.currentCard.found = false;
                 this.playedCards.push(this.currentCard);
+                this.currentCards.push(this.currentCard);
                 this.getRandomCardFromCurrentCards();
             },
             getFoundCards: function(){

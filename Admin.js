@@ -31,7 +31,6 @@ const appConfig = {
     }
 
 async function init  (){
-   document.documentElement.requestFullscreen();
     app= new Vue ({
         el: '#app',
         data: {
@@ -178,7 +177,6 @@ function showDetail(){
     else {
       document.getElementById('wordDetail').style.display = "none";}
     }
-
 
     function wordComparer(a, b) {
       if (a.word > b.word) {
