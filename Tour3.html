@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>TIMESUP</title>
+  <title>Coopération en jeu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -65,7 +65,7 @@
             <div class="modal-content">
               <div class="modal-body">
                 <img src="./img/ico_feu_artifice.png" class="imgArtifice">
-                <h4>Bravo, vous avez trouvé {{getFoundCards().length}} sur {{comptCardPlayed()}} cartes. Félicitation !</h4>
+                <h4>Bravo, vous avez trouvé {{getFoundCards().length}} sur {{playedCards.length}} cartes. Félicitation !</h4>
                 <div class="lastTurnDetail" v-for="(card, index) in playedCards" :key="card.id">
                   <div class="row">
                   <div class="col-2">
@@ -96,7 +96,7 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal" OnClick="startTimer()">Joueur suivant</button>
+                <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal" OnClick="resetTimer(),startTimer()">Joueur suivant</button>
                 <button type="button" class="btn btn-lg btn-danger" v-on:click="restart">Rejouer</button>
                 <button type="button" class="accueilBtn" v-on:click="navToMain">Accueil</button>
               </div>
@@ -123,7 +123,7 @@
         <!--<div class="col-6">
           <button class="resetButton" type="button" OnClick="resetTimer()" >reset</button>
         </div>-->
-          <button class="stopButton" type="button" Onclick="stopTurn()" a href="#" data-toggle="modal" data-target="#smallModal">Arreter le tour</button>
+          <button class="stopButton" type="button" Onclick="stopTurn()" a href="#" data-toggle="modal" data-target="#smallModal">Joueur / Tour suivant</button>
       </div>
 
     <div class="mainGameDiv">

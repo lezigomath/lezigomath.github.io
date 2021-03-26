@@ -82,15 +82,21 @@ function init (){
               mongoCollection.deleteOne(wordtoSend);
           },
 
+            arrayMaj: function(){
+              if(this.playedCards.indexOf(this.currentCard) === -1) {
+                this.playedCards.push(this.currentCard);
+            }
+            },
+
             foundCard: function (){
                 this.currentCard.found =true;
-                this.playedCards.push(this.currentCard);
+                this.arrayMaj();
                 this.getRandomCardFromCurrentCards();
             },
 
             nextCard: function(){
                 this.currentCard.found = false;
-                this.playedCards.push(this.currentCard);
+                this.arrayMaj();
                 this.currentCards.push(this.currentCard);
                 this.getRandomCardFromCurrentCards();
             },
@@ -275,9 +281,22 @@ function incrementTimer() {
   
 }
 
+function startTimer() {
+  document.getElementById('timer').classList.remove('times-up');
+   newMinutes = minutes;
+   newSeconds = seconds;
+  if (!timerActive) {
+    pomoTimer = setInterval(runTimer, 1000);
+    timerActive = true;
+  } else {
+    stopTimer();
+    timerActive = false;
+  }
+}
+
 function resetTimer() {
-  minutes = 2;
-  seconds = "00";
+  minutes = newMinutes;
+  seconds = newSeconds;
   timerActive = false;
   document.getElementById('timer').classList.remove('times-up');
   document.getElementById("minutes").innerHTML = minutes;
@@ -290,15 +309,9 @@ function stopTimer() {
   return;
 }
 
-function startTimer() {
-  document.getElementById('timer').classList.remove('times-up');
-  if (!timerActive) {
-    pomoTimer = setInterval(runTimer, 1000);
-    timerActive = true;
-  } else {
-    stopTimer();
-    timerActive = false;
-  }
+function stopTurn(){
+  resetTimer();
+  $("#smallModal").modal();
 }
 
 function runTimer() {
@@ -312,7 +325,7 @@ function runTimer() {
       document.getElementById('minutes').innerHTML = "0";
       document.getElementById('timer').classList.add('times-up');
       stopTimer();
-      $("#smallModal").modal();
+      stopTurn();
       return;
     }
 
@@ -343,11 +356,6 @@ function hideRappel(){
 
 function showGame() {
   document.getElementById('gameD').style.display='block';
-}
-
-function stopTurn(){
-    resetTimer();
-    $("#smallModal").modal();
 }
 
 function showDetail(){

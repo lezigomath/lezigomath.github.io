@@ -55,23 +55,30 @@ function init (){
                     this.currentCard = takenElements[0];
                 }
                 else {
-                  stopTurn();
+                  stopTurn(); 
                   $("#smallModal").modal();
                 }
             },
 
+            arrayMaj: function(){
+              if(this.playedCards.indexOf(this.currentCard) === -1) {
+                this.playedCards.push(this.currentCard);
+            }
+            },
+
             foundCard: function (){
                 this.currentCard.found =true;
-                this.playedCards.push(this.currentCard);
+                this.arrayMaj();
                 this.getRandomCardFromCurrentCards();
             },
 
             nextCard: function(){
                 this.currentCard.found = false;
-                this.playedCards.push(this.currentCard);
+                this.arrayMaj();
                 this.currentCards.push(this.currentCard);
                 this.getRandomCardFromCurrentCards();
             },
+
             getFoundCards: function(){
                let FoundCards = this.playedCards.filter(card => card.found);
                return FoundCards;
@@ -142,10 +149,22 @@ function incrementTimer() {
     document.getElementById("minutes").innerHTML = minutes;
   }
 }
+function startTimer() {
+  document.getElementById('timer').classList.remove('times-up');
+   newMinutes = minutes;
+   newSeconds = seconds;
+  if (!timerActive) {
+    pomoTimer = setInterval(runTimer, 1000);
+    timerActive = true;
+  } else {
+    stopTimer();
+    timerActive = false;
+  }
+}
 
 function resetTimer() {
-  minutes = 01;
-  seconds = "00";
+  minutes = newMinutes;
+  seconds = newSeconds;
   timerActive = false;
   document.getElementById('timer').classList.remove('times-up');
   document.getElementById("minutes").innerHTML = minutes;
@@ -156,17 +175,6 @@ function resetTimer() {
 function stopTimer() {
   clearInterval(pomoTimer);
   return;
-}
-
-function startTimer() {
-  document.getElementById('timer').classList.remove('times-up');
-  if (!timerActive) {
-    pomoTimer = setInterval(runTimer, 1000);
-    timerActive = true;
-  } else {
-    stopTimer();
-    timerActive = false;
-  }
 }
 
 function runTimer() {
